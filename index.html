@@ -7,31 +7,27 @@
   <title>ডাঃ নাফিস রহমান | হৃদরোগ বিশেষজ্ঞ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Profile image container relative for Edit button */
     .profile-image-container {
       position: relative;
       width: 160px;
-      /* বড় সাইজ */
       height: 160px;
       margin-bottom: 1rem;
     }
 
     .profile-image-container img {
-      width: 160px;
-      height: 160px;
+      width: 100%;
+      height: 100%;
       border-radius: 9999px;
       border: 4px solid white;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       object-fit: cover;
     }
 
-    /* Edit button on image */
     .edit-button {
       position: absolute;
       bottom: 0;
       right: 0;
       background-color: rgba(59, 130, 246, 0.8);
-      /* blue-500 with opacity */
       color: white;
       padding: 0.25rem 0.5rem;
       border-radius: 9999px;
@@ -43,33 +39,29 @@
 
     .edit-button:hover {
       background-color: rgba(37, 99, 235, 0.9);
-      /* blue-600 */
     }
 
-    /* Hide file input initially, show only when editing */
     #fileInput {
       display: none;
     }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50 text-gray-800 font-sans">
   <!-- Hero Section -->
-  <section class="bg-blue-100 p-8 md:p-16 text-center">
-    <div class="flex flex-col items-center">
+  <section class="bg-gradient-to-br from-blue-100 to-blue-200 p-10 md:p-16 text-center shadow-sm">
+    <div class="flex flex-col items-center gap-4">
       <div class="profile-image-container">
         <img id="preview" src="https://via.placeholder.com/160" alt="Dr. Nafis Rahman" />
         <div id="editBtn" class="edit-button" title="ছবি পরিবর্তন করুন">Edit</div>
       </div>
-      <!-- Hidden file input -->
       <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" />
 
-      <h1 class="text-4xl md:text-5xl font-bold text-blue-800">ডাঃ নাফিস রহমান</h1>
-      <p class="mt-2 text-lg">এমবিবিএস, এফসিপিএস – সিনিয়র হৃদরোগ বিশেষজ্ঞ</p>
-      <p class="mt-1 text-gray-700">১৫ বছরের বেশি অভিজ্ঞতাসম্পন্ন হৃদরোগ চিকিৎসক</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900">ডাঃ নাফিস রহমান</h1>
+      <p class="text-lg text-gray-800">এমবিবিএস, এফসিপিএস – সিনিয়র হৃদরোগ বিশেষজ্ঞ</p>
+      <p class="text-gray-700 text-base">১৫ বছরের বেশি অভিজ্ঞতাসম্পন্ন হৃদরোগ চিকিৎসক</p>
       <a href="#appointment"
-        class="mt-6 inline-block px-6 py-3 bg-blue-700 text-white rounded-xl shadow hover:bg-blue-800">অ্যাপয়েন্টমেন্ট
+        class="mt-6 inline-block px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow hover:bg-blue-800 transition">অ্যাপয়েন্টমেন্ট
         নিন</a>
     </div>
   </section>
@@ -77,98 +69,122 @@
   <!-- About Section -->
   <section class="p-6 md:p-12 max-w-4xl mx-auto">
     <h2 class="text-2xl font-semibold mb-4 text-blue-900">আমার সম্পর্কে</h2>
-    <p class="text-gray-700">
-      আমি ডাঃ নাফিস রহমান, একজন অভিজ্ঞ হৃদরোগ বিশেষজ্ঞ। ব্যক্তিগত ও যত্নশীল চিকিৎসা প্রদানে আমি বিশ্বাস করি।
-    </p>
+    <p class="text-gray-700 leading-relaxed">আমি ডাঃ নাফিস রহমান, একজন অভিজ্ঞ হৃদরোগ বিশেষজ্ঞ। ব্যক্তিগত ও যত্নশীল
+      চিকিৎসা প্রদানে আমি বিশ্বাস করি।</p>
   </section>
 
   <!-- Services Section -->
   <section class="bg-white p-6 md:p-12">
-    <h2 class="text-2xl font-semibold text-center text-blue-900 mb-6">সেবাসমূহ</h2>
+    <h2 class="text-2xl font-semibold text-center text-blue-900 mb-8">সেবাসমূহ</h2>
     <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700">হৃদযন্ত্র পরীক্ষা</h3>
-        <p class="text-gray-600 mt-2">ইসিজি, ইকো ও পরামর্শসহ পূর্ণাঙ্গ হৃদযন্ত্র মূল্যায়ন।</p>
+      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-blue-700 mb-2">হৃদযন্ত্র পরীক্ষা</h3>
+        <p class="text-gray-600">ইসিজি, ইকো ও পরামর্শসহ পূর্ণাঙ্গ হৃদযন্ত্র মূল্যায়ন।</p>
       </div>
-      <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700">রক্তচাপ নিয়ন্ত্রণ</h3>
-        <p class="text-gray-600 mt-2">উচ্চ রক্তচাপ নির্ণয় ও কার্যকর চিকিৎসা।</p>
+      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-blue-700 mb-2">রক্তচাপ নিয়ন্ত্রণ</h3>
+        <p class="text-gray-600">উচ্চ রক্তচাপ নির্ণয় ও কার্যকর চিকিৎসা।</p>
       </div>
-      <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700">ইসিজি ও ইকো সেবা</h3>
-        <p class="text-gray-600 mt-2">চেম্বারে উন্নত ডায়াগনস্টিক সেবা এবং দ্রুত রিপোর্ট।</p>
+      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-blue-700 mb-2">ইসিজি ও ইকো সেবা</h3>
+        <p class="text-gray-600">চেম্বারে উন্নত ডায়াগনস্টিক সেবা এবং দ্রুত রিপোর্ট।</p>
       </div>
     </div>
   </section>
 
   <!-- Appointment Section -->
-  <section id="appointment" class="p-8 md:p-12 bg-blue-700 text-white">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-bold text-center">অ্যাপয়েন্টমেন্ট ফর্ম</h2>
-      <form id="appointment-form" class="mt-6 space-y-4 bg-white p-6 rounded-xl text-gray-800 shadow-md"
-        onsubmit="submitAppointment(event)">
+  <section id="appointment" class="bg-gray-100 py-12 px-4">
+    <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8 md:p-10">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">অ্যাপয়েন্টমেন্ট ফর্ম</h2>
+
+      <form id="appointment-form" class="space-y-5" onsubmit="submitAppointment(event)">
+        <!-- Name -->
         <div>
-          <label class="block mb-1 font-medium">আপনার নাম</label>
-          <input id="name" type="text" class="w-full p-2 border rounded" placeholder="নাম লিখুন" required>
+          <label for="name" class="block text-gray-700 font-semibold mb-1">আপনার নাম</label>
+          <input id="name" type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="নাম লিখুন" required>
         </div>
+
+        <!-- Phone -->
         <div>
-          <label class="block mb-1 font-medium">মোবাইল নম্বর</label>
-          <input id="phone" type="tel" class="w-full p-2 border rounded" placeholder="মোবাইল নম্বর লিখুন" required>
+          <label for="phone" class="block text-gray-700 font-semibold mb-1">মোবাইল নম্বর</label>
+          <input id="phone" type="tel"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="মোবাইল নম্বর লিখুন" required>
         </div>
+
+        <!-- Date -->
         <div>
-          <label class="block mb-1 font-medium">তারিখ নির্বাচন করুন</label>
-          <input id="date" type="date" class="w-full p-2 border rounded" required>
+          <label for="date" class="block text-gray-700 font-semibold mb-1">তারিখ নির্বাচন করুন</label>
+          <input id="date" type="date"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required>
         </div>
+
+        <!-- Additional Info -->
         <div>
-          <label class="block mb-1 font-medium">অতিরিক্ত তথ্য</label>
-          <textarea id="info" class="w-full p-2 border rounded" rows="3"
+          <label for="info" class="block text-gray-700 font-semibold mb-1">অতিরিক্ত তথ্য</label>
+          <textarea id="info" rows="3"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
             placeholder="আপনার সমস্যার সংক্ষিপ্ত বিবরণ"></textarea>
         </div>
-        <button type="submit" class="w-full py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-800">সাবমিট
-          করুন</button>
+
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full bg-blue-700 text-white font-semibold py-3 rounded-lg hover:bg-blue-800 transition duration-200">
+          সাবমিট করুন
+        </button>
       </form>
-      <p class="mt-6 text-center">আপনি চাইলে সরাসরি কল করতে পারেন: <strong>+৮৮০-১২৩৪-৫৬৭৮৯০</strong></p>
+
+      <!-- Call Info -->
+      <p class="text-center text-gray-700 mt-6">
+        সরাসরি কল করতে চান?
+        <a href="tel:+8801234567890"
+          class="text-blue-600 underline hover:text-blue-800 font-bold transition duration-200">
+          +৮৮০-১২৩৪-৫৬৭৮৯০
+        </a>
+      </p>
     </div>
   </section>
 
-  <!-- Appointment Data Table -->
+
+  <!-- Appointment Table -->
   <section class="p-6 max-w-4xl mx-auto">
     <h2 class="text-2xl font-semibold mb-4 text-blue-900">অ্যাপয়েন্টমেন্ট তালিকা</h2>
-    <table class="w-full border-collapse border border-gray-300">
-      <thead>
-        <tr class="bg-blue-100 text-blue-800">
-          <th class="border px-4 py-2">নাম</th>
-          <th class="border px-4 py-2">মোবাইল নম্বর</th>
-          <th class="border px-4 py-2">তারিখ</th>
-          <th class="border px-4 py-2">অতিরিক্ত তথ্য</th>
-        </tr>
-      </thead>
-      <tbody id="appointment-list">
-        <!-- Appointment data will be inserted here -->
-      </tbody>
-    </table>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-300">
+        <thead class="bg-blue-100 text-blue-800">
+          <tr>
+            <th class="border px-4 py-2">নাম</th>
+            <th class="border px-4 py-2">মোবাইল নম্বর</th>
+            <th class="border px-4 py-2">তারিখ</th>
+            <th class="border px-4 py-2">অতিরিক্ত তথ্য</th>
+          </tr>
+        </thead>
+        <tbody id="appointment-list"></tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- Google Map -->
+  <!-- Map -->
   <section class="p-6">
     <h2 class="text-2xl font-semibold text-center mb-4 text-blue-900">আমার চেম্বারের অবস্থান</h2>
     <div class="flex justify-center">
       <iframe src="https://www.google.com/maps/embed?...your-location..." width="100%" height="350"
-        class="rounded-xl border" allowfullscreen="" loading="lazy"></iframe>
+        class="rounded-xl border w-full max-w-4xl" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
 
-  <!-- WhatsApp Chat Button -->
+  <!-- WhatsApp -->
   <a href="https://wa.me/8801234567890" target="_blank"
-    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg">
-    WhatsApp</a>
+    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg">WhatsApp</a>
 
   <!-- Footer -->
-  <footer class="text-center py-4 bg-gray-100 text-sm text-gray-500">
-    © ২০২৫ ডাঃ নাফিস রহমান। সর্বস্বত্ব সংরক্ষিত।
+  <footer class="text-center py-4 bg-gray-100 text-sm text-gray-500">© ২০২৫ ডাঃ নাফিস রহমান। সর্বস্বত্ব সংরক্ষিত।
   </footer>
 
-  <!-- Firebase Scripts এবং JS Functions -->
+  <!-- Firebase + JS -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <script>
@@ -182,7 +198,6 @@
       appId: "1:679830707825:web:09c6112e1a58a1e0b005d0"
     };
     firebase.initializeApp(firebaseConfig);
-
     const dbRef = firebase.database().ref('appointments');
 
     function submitAppointment(e) {
@@ -191,43 +206,31 @@
       const phone = document.getElementById('phone').value.trim();
       const date = document.getElementById('date').value;
       const info = document.getElementById('info').value.trim();
-
-      if (!name || !phone || !date) {
-        alert("অনুগ্রহ করে সব তথ্য দিন!");
-        return;
-      }
-
+      if (!name || !phone || !date) return alert("অনুগ্রহ করে সব তথ্য দিন!");
       dbRef.push({ name, phone, date, info })
         .then(() => {
           alert("অ্যাপয়েন্টমেন্ট সাবমিট হয়েছে!");
           document.getElementById('appointment-form').reset();
         })
-        .catch(error => {
-          alert("সাবমিশনে সমস্যা হয়েছে: " + error.message);
-        });
+        .catch(error => alert("সাবমিশনে সমস্যা হয়েছে: " + error.message));
     }
 
     function loadAppointments() {
       const list = document.getElementById('appointment-list');
-      list.innerHTML = '';
-
       dbRef.on('value', snapshot => {
         list.innerHTML = '';
         snapshot.forEach(childSnapshot => {
-          const appt = childSnapshot.val();
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td class="border px-4 py-2">${appt.name}</td>
-            <td class="border px-4 py-2">${appt.phone}</td>
-            <td class="border px-4 py-2">${appt.date}</td>
-            <td class="border px-4 py-2">${appt.info || ''}</td>
-          `;
-          list.appendChild(tr);
+          const { name, phone, date, info } = childSnapshot.val();
+          list.innerHTML += `<tr>
+            <td class="border px-4 py-2">${name}</td>
+            <td class="border px-4 py-2">${phone}</td>
+            <td class="border px-4 py-2">${date}</td>
+            <td class="border px-4 py-2">${info || ''}</td>
+          </tr>`;
         });
       });
     }
 
-    // Image preview and UI logic
     const fileInput = document.getElementById('fileInput');
     const editBtn = document.getElementById('editBtn');
     const preview = document.getElementById('preview');
@@ -235,36 +238,22 @@
     function previewImage(event) {
       const file = event.target.files[0];
       if (!file) return;
-
       const reader = new FileReader();
-      reader.onload = function () {
+      reader.onload = () => {
         preview.src = reader.result;
-
-        // Hide file input after image selected
         fileInput.style.display = 'none';
-
-        // Show edit button
         editBtn.style.display = 'block';
       };
       reader.readAsDataURL(file);
     }
 
-    // When user clicks Edit button, show file input again
-    editBtn.addEventListener('click', () => {
-      fileInput.click();
-      // Show file input temporarily
-      fileInput.style.display = 'block';
-    });
-
+    editBtn.addEventListener('click', () => fileInput.click());
     window.onload = () => {
       loadAppointments();
-
-      // Initially hide edit button and file input visible
       editBtn.style.display = 'none';
       fileInput.style.display = 'block';
     };
   </script>
-
 </body>
 
 </html>
