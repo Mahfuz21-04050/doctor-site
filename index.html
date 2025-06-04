@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ডাঃ নাফিস রহমান | হৃদরোগ বিশেষজ্ঞ</title>
+  <title>মিনহাজুর রহমান রিমন | মেডিকেল ছাত্র</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     .profile-image-container {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       margin-bottom: 1rem;
     }
 
@@ -18,175 +22,165 @@
       width: 100%;
       height: 100%;
       border-radius: 9999px;
-      border: 4px solid white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 6px solid white;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
       object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .profile-image-container img:hover {
+      transform: scale(1.07) rotate(-1deg);
     }
 
     .edit-button {
       position: absolute;
       bottom: 0;
       right: 0;
-      background-color: rgba(59, 130, 246, 0.8);
+      background-color: rgba(59, 130, 246, 0.95);
       color: white;
-      padding: 0.25rem 0.5rem;
+      padding: 0.4rem 0.7rem;
       border-radius: 9999px;
       font-size: 0.75rem;
       cursor: pointer;
-      user-select: none;
       transition: background-color 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     }
 
     .edit-button:hover {
-      background-color: rgba(37, 99, 235, 0.9);
+      background-color: rgba(37, 99, 235, 1);
     }
 
     #fileInput {
       display: none;
     }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+    }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gradient-to-tr from-blue-50 via-white to-blue-100 text-gray-800">
+
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-blue-100 to-blue-200 p-10 md:p-16 text-center shadow-sm">
+  <section class="p-10 md:p-16 text-center shadow-inner">
     <div class="flex flex-col items-center gap-4">
       <div class="profile-image-container">
-        <img id="preview" src="https://via.placeholder.com/160" alt="Dr. Nafis Rahman" />
+        <img id="preview" src="https://via.placeholder.com/180" alt="Minhajur Rahman Riman" />
         <div id="editBtn" class="edit-button" title="ছবি পরিবর্তন করুন">Edit</div>
       </div>
       <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" />
 
-      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900">ডাঃ নাফিস রহমান</h1>
-      <p class="text-lg text-gray-800">এমবিবিএস, এফসিপিএস – সিনিয়র হৃদরোগ বিশেষজ্ঞ</p>
-      <p class="text-gray-700 text-base">১৫ বছরের বেশি অভিজ্ঞতাসম্পন্ন হৃদরোগ চিকিৎসক</p>
-      <a href="#appointment"
-        class="mt-6 inline-block px-6 py-3 bg-blue-700 text-white font-semibold rounded-full shadow hover:bg-blue-800 transition">অ্যাপয়েন্টমেন্ট
-        নিন</a>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900 tracking-wide">মিনহাজুর রহমান রিমন</h1>
+      <p class="text-lg text-blue-800 font-medium">শেরে বাংলা মেডিকেল কলেজের চূড়ান্ত বর্ষের ছাত্র</p>
+      <p class="text-gray-700 text-base italic">ভবিষ্যৎ হৃদরোগ বিশেষজ্ঞ</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-6">
+        <a href="appoint.html"
+          class="inline-block px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transform transition">অ্যাপয়েন্টমেন্ট
+          নিন</a>
+        <a href="appointlist.html"
+          class="inline-block px-6 py-3 bg-gradient-to-r from-green-700 to-green-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transform transition">অ্যাপয়েন্টমেন্ট
+          তালিকা</a>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="p-6 md:p-12 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4 text-blue-900">আমার সম্পর্কে</h2>
-    <p class="text-gray-700 leading-relaxed">আমি ডাঃ নাফিস রহমান, একজন অভিজ্ঞ হৃদরোগ বিশেষজ্ঞ। ব্যক্তিগত ও যত্নশীল
-      চিকিৎসা প্রদানে আমি বিশ্বাস করি।</p>
+    <h2 class="text-3xl font-bold mb-4 text-blue-900 text-center">আমার সম্পর্কে</h2>
+    <div class="bg-white p-6 rounded-xl shadow-xl text-lg text-gray-700 leading-relaxed">
+      আমি মিনহাজুর রহমান রিমন, শেরে বাংলা মেডিকেল কলেজের শেষ বর্ষের একজন ছাত্র। আমি ভবিষ্যতে একজন মানবিক হৃদরোগ চিকিৎসক
+      হতে চাই, যারা রোগীদের প্রতি সহানুভূতিশীল ও আধুনিক চিকিৎসা সেবা প্রদান করবেন।
+    </div>
   </section>
 
   <!-- Services Section -->
-  <section class="bg-white p-6 md:p-12">
-    <h2 class="text-2xl font-semibold text-center text-blue-900 mb-8">সেবাসমূহ</h2>
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700 mb-2">হৃদযন্ত্র পরীক্ষা</h3>
-        <p class="text-gray-600">ইসিজি, ইকো ও পরামর্শসহ পূর্ণাঙ্গ হৃদযন্ত্র মূল্যায়ন।</p>
+  <section class="bg-gradient-to-r from-blue-50 to-blue-100 py-12">
+    <h2 class="text-3xl font-bold text-center text-blue-900 mb-10">সেবাসমূহ</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+      <div
+        class="glass-card p-6 rounded-2xl shadow hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">হৃদযন্ত্র পরীক্ষা</h3>
+        <p class="text-gray-700">ইসিজি, ইকো ও পরামর্শসহ পূর্ণাঙ্গ হৃদযন্ত্র মূল্যায়ন (প্রশিক্ষণের অংশ হিসেবে)।</p>
       </div>
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700 mb-2">রক্তচাপ নিয়ন্ত্রণ</h3>
-        <p class="text-gray-600">উচ্চ রক্তচাপ নির্ণয় ও কার্যকর চিকিৎসা।</p>
+      <div
+        class="glass-card p-6 rounded-2xl shadow hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">রক্তচাপ পরামর্শ</h3>
+        <p class="text-gray-700">রক্তচাপ পরিমাপ এবং মৌলিক পরামর্শ প্রদানে আগ্রহী।</p>
       </div>
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-blue-700 mb-2">ইসিজি ও ইকো সেবা</h3>
-        <p class="text-gray-600">চেম্বারে উন্নত ডায়াগনস্টিক সেবা এবং দ্রুত রিপোর্ট।</p>
+      <div
+        class="glass-card p-6 rounded-2xl shadow hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">স্বাস্থ্য জ্ঞান ছড়ানো</h3>
+        <p class="text-gray-700">হৃদরোগ বিষয়ে জনসচেতনতা বৃদ্ধির জন্য কাজ করছি।</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Appointment Section -->
-  <section id="appointment" class="bg-gray-100 py-12 px-4">
-    <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8 md:p-10">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">অ্যাপয়েন্টমেন্ট ফর্ম</h2>
-
-      <form id="appointment-form" class="space-y-5" onsubmit="submitAppointment(event)">
-        <!-- Name -->
-        <div>
-          <label for="name" class="block text-gray-700 font-semibold mb-1">আপনার নাম</label>
-          <input id="name" type="text"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="নাম লিখুন" required>
-        </div>
-
-        <!-- Phone -->
-        <div>
-          <label for="phone" class="block text-gray-700 font-semibold mb-1">মোবাইল নম্বর</label>
-          <input id="phone" type="tel"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="মোবাইল নম্বর লিখুন" required>
-        </div>
-
-        <!-- Date -->
-        <div>
-          <label for="date" class="block text-gray-700 font-semibold mb-1">তারিখ নির্বাচন করুন</label>
-          <input id="date" type="date"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required>
-        </div>
-
-        <!-- Additional Info -->
-        <div>
-          <label for="info" class="block text-gray-700 font-semibold mb-1">অতিরিক্ত তথ্য</label>
-          <textarea id="info" rows="3"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="আপনার সমস্যার সংক্ষিপ্ত বিবরণ"></textarea>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit"
-          class="w-full bg-blue-700 text-white font-semibold py-3 rounded-lg hover:bg-blue-800 transition duration-200">
-          সাবমিট করুন
-        </button>
-      </form>
-
-      <!-- Call Info -->
-      <p class="text-center text-gray-700 mt-6">
-        সরাসরি কল করতে চান?
-        <a href="tel:+8801234567890"
-          class="text-blue-600 underline hover:text-blue-800 font-bold transition duration-200">
-          +৮৮০-১২৩৪-৫৬৭৮৯০
-        </a>
-      </p>
-    </div>
-  </section>
-
-
-  <!-- Appointment Table -->
-  <section class="p-6 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4 text-blue-900">অ্যাপয়েন্টমেন্ট তালিকা</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full border border-gray-300">
-        <thead class="bg-blue-100 text-blue-800">
-          <tr>
-            <th class="border px-4 py-2">নাম</th>
-            <th class="border px-4 py-2">মোবাইল নম্বর</th>
-            <th class="border px-4 py-2">তারিখ</th>
-            <th class="border px-4 py-2">অতিরিক্ত তথ্য</th>
-          </tr>
-        </thead>
-        <tbody id="appointment-list"></tbody>
-      </table>
     </div>
   </section>
 
   <!-- Map -->
-  <section class="p-6">
-    <h2 class="text-2xl font-semibold text-center mb-4 text-blue-900">আমার চেম্বারের অবস্থান</h2>
+  <section class="p-6 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-6 text-blue-900">আমার অবস্থান</h2>
     <div class="flex justify-center">
-      <iframe src="https://www.google.com/maps/embed?...your-location..." width="100%" height="350"
-        class="rounded-xl border w-full max-w-4xl" allowfullscreen loading="lazy"></iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d942862.6815053477!2d89.9301538662996!3d22.60275302169083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755457f18f273df%3A0xc6290fbb92b3a2a5!2sBarisal%20Division!5e0!3m2!1sen!2sbd!4v1717560012345!5m2!1sen!2sbd"
+        width="100%" height="350" class="rounded-xl border w-full max-w-4xl" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
     </div>
   </section>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/8801234567890" target="_blank"
-    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg">WhatsApp</a>
+  <!-- Social Media Buttons: WhatsApp, Facebook, Instagram, Twitter -->
+  <div class="fixed bottom-5 right-5 flex flex-col gap-3 z-50">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/8801234567890" target="_blank"
+      class="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2 animate-bounce">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 10c0 5.25 6 10 9 10s9-4.75 9-10S15 0 12 0 3 4.75 3 10z" />
+      </svg>
+      WhatsApp
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://facebook.com/yourprofile" target="_blank"
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M22 12a10 10 0 1 0-11.62 9.87v-6.99h-2.88v-2.88h2.88v-2.2c0-2.85 1.69-4.43 4.27-4.43 1.23 0 2.51.22 2.51.22v2.76h-1.41c-1.39 0-1.83.87-1.83 1.76v2.1h3.12l-.5 2.88h-2.62v6.99A10 10 0 0 0 22 12" />
+      </svg>
+      Facebook
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/yourprofile" target="_blank"
+      class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm8 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-3 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+      </svg>
+      Instagram
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://twitter.com/yourprofile" target="_blank"
+      class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.06 9.06 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.92 0a4.49 4.49 0 0 0-4.35 5.53A12.75 12.75 0 0 1 2 2.67a4.49 4.49 0 0 0 1.39 6 4.44 4.44 0 0 1-2.03-.56v.06a4.5 4.5 0 0 0 3.6 4.41 4.5 4.5 0 0 1-2.02.08 4.5 4.5 0 0 0 4.2 3.13A9 9 0 0 1 1 18.55 12.75 12.75 0 0 0 7 20c8.34 0 12.9-6.91 12.9-12.9 0-.2 0-.42-.02-.63A9.22 9.22 0 0 0 23 3z" />
+      </svg>
+      Twitter
+    </a>
+  </div>
 
   <!-- Footer -->
-  <footer class="text-center py-4 bg-gray-100 text-sm text-gray-500">© ২০২৫ ডাঃ নাফিস রহমান। সর্বস্বত্ব সংরক্ষিত।
+  <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">© ২০২৫ মিনহাজুর রহমান রিমন। সর্বস্বত্ব সংরক্ষিত।
   </footer>
 
-  <!-- Firebase + JS -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyD0O6ki2od5HmCOGKZFu4d0WwAkV6n261E",
@@ -198,62 +192,70 @@
       appId: "1:679830707825:web:09c6112e1a58a1e0b005d0"
     };
     firebase.initializeApp(firebaseConfig);
-    const dbRef = firebase.database().ref('appointments');
-
-    function submitAppointment(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const date = document.getElementById('date').value;
-      const info = document.getElementById('info').value.trim();
-      if (!name || !phone || !date) return alert("অনুগ্রহ করে সব তথ্য দিন!");
-      dbRef.push({ name, phone, date, info })
-        .then(() => {
-          alert("অ্যাপয়েন্টমেন্ট সাবমিট হয়েছে!");
-          document.getElementById('appointment-form').reset();
-        })
-        .catch(error => alert("সাবমিশনে সমস্যা হয়েছে: " + error.message));
-    }
-
-    function loadAppointments() {
-      const list = document.getElementById('appointment-list');
-      dbRef.on('value', snapshot => {
-        list.innerHTML = '';
-        snapshot.forEach(childSnapshot => {
-          const { name, phone, date, info } = childSnapshot.val();
-          list.innerHTML += `<tr>
-            <td class="border px-4 py-2">${name}</td>
-            <td class="border px-4 py-2">${phone}</td>
-            <td class="border px-4 py-2">${date}</td>
-            <td class="border px-4 py-2">${info || ''}</td>
-          </tr>`;
-        });
-      });
-    }
+    const storage = firebase.storage();
+    const firestore = firebase.firestore();
 
     const fileInput = document.getElementById('fileInput');
-    const editBtn = document.getElementById('editBtn');
     const preview = document.getElementById('preview');
+    const editBtn = document.getElementById('editBtn');
 
-    function previewImage(event) {
+    // ক্লিক করলে ফাইল সিলেক্ট করুন
+    editBtn.addEventListener('click', () => fileInput.click());
+
+    // পেজ লোড হলে আগের ছবিটি লোড করুন Firestore থেকে
+    window.addEventListener('load', async () => {
+      try {
+        const doc = await firestore.collection('userProfiles').doc('defaultUser').get();
+        if (doc.exists) {
+          const data = doc.data();
+          if (data.profilePicURL) {
+            preview.src = data.profilePicURL;
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching profile pic URL:", error);
+      }
+    });
+
+    // ছবি সিলেক্ট করলে আপলোড ও URL সেভ করবেন
+    fileInput.addEventListener('change', async (event) => {
       const file = event.target.files[0];
       if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        preview.src = reader.result;
-        fileInput.style.display = 'none';
-        editBtn.style.display = 'block';
-      };
-      reader.readAsDataURL(file);
-    }
 
-    editBtn.addEventListener('click', () => fileInput.click());
+      // ফাইল নামের সাথে টাইমস্ট্যাম্প যোগ করা যাতে নাম ইউনিক হয়
+      const fileName = Date.now() + '_' + file.name;
+      const storageRef = storage.ref('profile_pics/' + fileName);
+
+      try {
+        // আপলোড শুরু
+        await storageRef.put(file);
+
+        // ডাউনলোড URL নিন
+        const downloadURL = await storageRef.getDownloadURL();
+
+        // Firestore এ সেভ করুন
+        await firestore.collection('userProfiles').doc('defaultUser').set({
+          profilePicURL: downloadURL
+        });
+
+        // প্রিভিউ আপডেট করুন
+        preview.src = downloadURL;
+        alert("Profile picture আপলোড হয়েছে!");
+
+      } catch (error) {
+        console.error("Upload failed:", error);
+        alert("Error uploading file: " + error.message);
+      }
+    });
+
+    // শুরুতে edit button দেখাবেন
     window.onload = () => {
-      loadAppointments();
-      editBtn.style.display = 'none';
-      fileInput.style.display = 'block';
+      editBtn.style.display = 'block';
     };
   </script>
+
+
+
 </body>
 
 </html>

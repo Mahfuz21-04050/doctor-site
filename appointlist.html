@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>অ্যাপয়েন্টমেন্ট তালিকা</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Appointment Table -->
+  <section class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-900">অ্যাপয়েন্টমেন্ট তালিকা</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-300">
+        <thead class="bg-blue-100 text-blue-800">
+          <tr>
+            <th class="border px-4 py-2">নাম</th>
+            <th class="border px-4 py-2">মোবাইল নম্বর</th>
+            <th class="border px-4 py-2">তারিখ</th>
+            <th class="border px-4 py-2">অতিরিক্ত তথ্য</th>
+          </tr>
+        </thead>
+        <tbody id="appointment-list">
+          <!-- ডায়নামিক অ্যাপয়েন্টমেন্ট রো এখানে আসবে -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- Firebase + JS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD0O6ki2od5HmCOGKZFu4d0WwAkV6n261E",
+      authDomain: "doctor-1ee44.firebaseapp.com",
+      databaseURL: "https://doctor-1ee44-default-rtdb.firebaseio.com",
+      projectId: "doctor-1ee44",
+      storageBucket: "doctor-1ee44.appspot.com",
+      messagingSenderId: "679830707825",
+      appId: "1:679830707825:web:09c6112e1a58a1e0b005d0"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const dbRef = firebase.database().ref('appointments');
+
+
+    function loadAppointments() {
+      const list = document.getElementById('appointment-list');
+      dbRef.on('value', snapshot => {
+        list.innerHTML = '';
+        snapshot.forEach(childSnapshot => {
+          const { name, phone, date, info } = childSnapshot.val();
+          list.innerHTML += `<tr>
+            <td class="border px-4 py-2">${name}</td>
+            <td class="border px-4 py-2">${phone}</td>
+            <td class="border px-4 py-2">${date}</td>
+            <td class="border px-4 py-2">${info || ''}</td>
+          </tr>`;
+        });
+      });
+    }
+
+    window.onload = loadAppointments;
+  </script>
+
+
+</body>
+
+</html>
