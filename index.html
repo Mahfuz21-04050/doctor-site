@@ -6,51 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ডাঃ নাফিস রহমান | হৃদরোগ বিশেষজ্ঞ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyD0O6ki2od5HmCOGKZFu4d0WwAkV6n261E",
-      authDomain: "doctor-1ee44.firebaseapp.com",
-      databaseURL: "https://doctor-1ee44.firebaseio.com",
-      projectId: "doctor-1ee44",
-      storageBucket: "doctor-1ee44.appspot.com",
-      messagingSenderId: "679830707825",
-      appId: "1:679830707825:web:09c6112e1a58a1e0b005d0"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    function submitAppointment(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const date = document.getElementById('date').value;
-      const info = document.getElementById('info').value;
-
-      if (!name || !phone || !date) {
-        alert("অনুগ্রহ করে সব তথ্য দিন!");
-        return;
-      }
-
-      firebase.database().ref('appointments').push({ name, phone, date, info })
-        .then(() => {
-          alert("অ্যাপয়েন্টমেন্ট সাবমিট হয়েছে!");
-          document.getElementById('appointment-form').reset();
-        })
-        .catch(error => {
-          alert("সাবমিশনে সমস্যা হয়েছে: " + error.message);
-        });
+  <style>
+    /* Profile image container relative for Edit button */
+    .profile-image-container {
+      position: relative;
+      width: 160px;
+      /* বড় সাইজ */
+      height: 160px;
+      margin-bottom: 1rem;
     }
 
-    function previewImage(event) {
-      const reader = new FileReader();
-      reader.onload = function () {
-        const output = document.getElementById('preview');
-        output.src = reader.result;
-      };
-      reader.readAsDataURL(event.target.files[0]);
+    .profile-image-container img {
+      width: 160px;
+      height: 160px;
+      border-radius: 9999px;
+      border: 4px solid white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
     }
-  </script>
+
+    /* Edit button on image */
+    .edit-button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(59, 130, 246, 0.8);
+      /* blue-500 with opacity */
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-button:hover {
+      background-color: rgba(37, 99, 235, 0.9);
+      /* blue-600 */
+    }
+
+    /* Hide file input initially, show only when editing */
+    #fileInput {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
@@ -58,11 +58,13 @@
   <!-- Hero Section -->
   <section class="bg-blue-100 p-8 md:p-16 text-center">
     <div class="flex flex-col items-center">
-      <form class="mb-4">
-        <input type="file" accept="image/*" class="block mb-2" onchange="previewImage(event)">
-        <img id="preview" src="https://via.placeholder.com/150" alt="Dr. Nafis Rahman"
-          class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4">
-      </form>
+      <div class="profile-image-container">
+        <img id="preview" src="https://via.placeholder.com/160" alt="Dr. Nafis Rahman" />
+        <div id="editBtn" class="edit-button" title="ছবি পরিবর্তন করুন">Edit</div>
+      </div>
+      <!-- Hidden file input -->
+      <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" />
+
       <h1 class="text-4xl md:text-5xl font-bold text-blue-800">ডাঃ নাফিস রহমান</h1>
       <p class="mt-2 text-lg">এমবিবিএস, এফসিপিএস – সিনিয়র হৃদরোগ বিশেষজ্ঞ</p>
       <p class="mt-1 text-gray-700">১৫ বছরের বেশি অভিজ্ঞতাসম্পন্ন হৃদরোগ চিকিৎসক</p>
@@ -129,6 +131,24 @@
     </div>
   </section>
 
+  <!-- Appointment Data Table -->
+  <section class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-900">অ্যাপয়েন্টমেন্ট তালিকা</h2>
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-blue-100 text-blue-800">
+          <th class="border px-4 py-2">নাম</th>
+          <th class="border px-4 py-2">মোবাইল নম্বর</th>
+          <th class="border px-4 py-2">তারিখ</th>
+          <th class="border px-4 py-2">অতিরিক্ত তথ্য</th>
+        </tr>
+      </thead>
+      <tbody id="appointment-list">
+        <!-- Appointment data will be inserted here -->
+      </tbody>
+    </table>
+  </section>
+
   <!-- Google Map -->
   <section class="p-6">
     <h2 class="text-2xl font-semibold text-center mb-4 text-blue-900">আমার চেম্বারের অবস্থান</h2>
@@ -147,6 +167,103 @@
   <footer class="text-center py-4 bg-gray-100 text-sm text-gray-500">
     © ২০২৫ ডাঃ নাফিস রহমান। সর্বস্বত্ব সংরক্ষিত।
   </footer>
+
+  <!-- Firebase Scripts এবং JS Functions -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD0O6ki2od5HmCOGKZFu4d0WwAkV6n261E",
+      authDomain: "doctor-1ee44.firebaseapp.com",
+      databaseURL: "https://doctor-1ee44-default-rtdb.firebaseio.com",
+      projectId: "doctor-1ee44",
+      storageBucket: "doctor-1ee44.appspot.com",
+      messagingSenderId: "679830707825",
+      appId: "1:679830707825:web:09c6112e1a58a1e0b005d0"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const dbRef = firebase.database().ref('appointments');
+
+    function submitAppointment(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const date = document.getElementById('date').value;
+      const info = document.getElementById('info').value.trim();
+
+      if (!name || !phone || !date) {
+        alert("অনুগ্রহ করে সব তথ্য দিন!");
+        return;
+      }
+
+      dbRef.push({ name, phone, date, info })
+        .then(() => {
+          alert("অ্যাপয়েন্টমেন্ট সাবমিট হয়েছে!");
+          document.getElementById('appointment-form').reset();
+        })
+        .catch(error => {
+          alert("সাবমিশনে সমস্যা হয়েছে: " + error.message);
+        });
+    }
+
+    function loadAppointments() {
+      const list = document.getElementById('appointment-list');
+      list.innerHTML = '';
+
+      dbRef.on('value', snapshot => {
+        list.innerHTML = '';
+        snapshot.forEach(childSnapshot => {
+          const appt = childSnapshot.val();
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="border px-4 py-2">${appt.name}</td>
+            <td class="border px-4 py-2">${appt.phone}</td>
+            <td class="border px-4 py-2">${appt.date}</td>
+            <td class="border px-4 py-2">${appt.info || ''}</td>
+          `;
+          list.appendChild(tr);
+        });
+      });
+    }
+
+    // Image preview and UI logic
+    const fileInput = document.getElementById('fileInput');
+    const editBtn = document.getElementById('editBtn');
+    const preview = document.getElementById('preview');
+
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        preview.src = reader.result;
+
+        // Hide file input after image selected
+        fileInput.style.display = 'none';
+
+        // Show edit button
+        editBtn.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // When user clicks Edit button, show file input again
+    editBtn.addEventListener('click', () => {
+      fileInput.click();
+      // Show file input temporarily
+      fileInput.style.display = 'block';
+    });
+
+    window.onload = () => {
+      loadAppointments();
+
+      // Initially hide edit button and file input visible
+      editBtn.style.display = 'none';
+      fileInput.style.display = 'block';
+    };
+  </script>
 
 </body>
 
